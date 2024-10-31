@@ -27,3 +27,7 @@ Ye sure, go ahead they're just glorified shell scripts shoved into a file anyway
 ## Free support??//
 
 Stuff I make here are mostly for my own use, it's great if it works for you but don't expect stellar, top of the line support. You can create a GitHub issue and maybe I'll take a lookie but I won't really bother fixing it unless it impacts me personally. I'll probably tackle onto it when I'm bored.
+
+## Is there like example configurations or Quadlet deployments somewhere?
+
+You can see them in my personal [GitHub](https://github.com/MrRubberDucky/rubberverse.xyz) page thingy, whatever.
