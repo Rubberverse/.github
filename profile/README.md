@@ -14,7 +14,7 @@ Granted some Dockerfile parts could've been done in a more sane way (ex. no `cd`
 
 ## Compatibility
 
-All images are ran and tested with Podman. I don't really care about Docker so... there are probably better images if you use that.
+All images are ran and tested with Podman via Quadlet. I don't really care about Docker so... there are probably better images if you use that. You probably won't find a compose.yaml in my repositories, though these are quite easy to throw up yourself.
 
 ## Where your images are published?
 
