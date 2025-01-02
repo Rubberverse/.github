@@ -18,7 +18,7 @@ All images are ran and tested with Podman. I don't really care about Docker so..
 
 ## Where your images are published?
 
-For now, only on my [Dockerhub](https://hub.docker.com/repositories/mrrubberducky), I'll bring GitHub Container Registry into play if anybody wants it on there.
+On GitHub Container Registry. Used to be on Docker Hub but they keep giving and taking away stuff all the time and constantly trying to upsell you that expensive monthly plan.
 
 ## Can I has your dockerfile? :3
 
