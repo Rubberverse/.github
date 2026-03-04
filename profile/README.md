@@ -6,9 +6,7 @@ The site in question being [rubberverse.xyz](https://rubberverse.xyz)
 
 Should be alright. I usually focus less on caching and more on ensuring everything is done inside single layer to optimize final filesize a bit more, sometimes works, sometimes not.
 
-I aim to make everything be inside one unified directory which is `/app`, it made it way easier for me to manage by compose at the time, but now I'm more of a Podman + Quadlet guy so that will be my first-class citizen here.
-
-My aim is to also make them as secure as I can, so there will be weird restrictive permissions on files, containers themselves will run as a rootless user, and in some cases the runner image will be `scratch` - so no shell utilities, package managers etc. just the raw binary of the program.
+My aim is to also make them as secure as I can, so there will be weird restrictive permissions on files, containers themselves will run as a rootless user, and in some cases the runner image will be `scratch` - so no shell utilities, package managers etc. just the raw binary of the program. Also under one directory which is `/app`.
 
 I tend to avoid inits such as su-exec, gosu as they don't really make sense in grand scheme of things. Your container still runs as `0` and remains as `0` even if it forks off to another user. Virtually no security benefit, only done for comfort. You can achieve ownership of directories by using `:U` flag on Podman which will make container process chown it and mount it - if you want the same files to be usable by x user then just add `UserNS=keep-id:uid=your_uid,gid=your_gid,size=your_uid+1` but that will lower your security by a bit since then it will run the container as your users namespace vs. randomized.
 
