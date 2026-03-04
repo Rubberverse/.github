@@ -1,33 +1,39 @@
-# Rubberverse.xyz
+# Organization for things I liked to make.
 
-Organization full of various Dockerfile(s) and some other for-fun stuff powering (or not) [my own personal site](https://rubberverse.xyz)
+The site in question being [rubberverse.xyz](https://rubberverse.xyz]
 
-Welcome to teh Rubberverse, I guess.
+## Image / Containerfile quality
 
-## Image/Dockerfile quality
+Should be alright. I usually focus less on caching and more on ensuring everything is done inside single layer to optimize final filesize a bit more, sometimes works, sometimes not.
 
-Should be pretty okay-ish. Most of software runs about out of stock configuration with only difference being the configuration filles and where stuff is stored is in a comfortable `/app` directory.
+I aim to make everything be inside one unified directory which is `/app`, it made it way easier for me to manage by compose at the time, but now I'm more of a Podman + Quadlet guy so that will be my first-class citizen here.
 
-Aiming for pure software feel with comfort, along with each image running as an unprivileged user by default inside the container. Mostly no weird modifications to the actual software, no usage of supervisors unless needed, and no root user switching unless for comfort (as a seperate image)
+My aim is to also make them as secure as I can, so there will be weird restrictive permissions on files, containers themselves will run as a rootless user, and in some cases the runner image will be `scratch` - so no shell utilities, package managers etc. just the raw binary of the program.
 
-Granted some Dockerfile parts could've been done in a more sane way (ex. no `cd` during build) but I want to squish everything into a single layer which is why stuff is done the way it is. Eventually all is going to be improved as I learn down the line.
+I tend to avoid inits such as su-exec, gosu as they don't really make sense in grand scheme of things. Your container still runs as `0` and remains as `0` even if it forks off to another user. Virtually no security benefit, only done for comfort. You can achieve ownership of directories by using `:U` flag on Podman which will make container process chown it and mount it - if you want the same files to be usable by x user then just add `UserNS=keep-id:uid=your_uid,gid=your_gid,size=your_uid+1` but that will lower your security by a bit since then it will run the container as your users namespace vs. randomized.
 
 ## Compatibility
 
-All images are ran and tested with Podman via Quadlet. I don't really care about Docker so... there are probably better images if you use that. You probably won't find a compose.yaml in my repositories, though these are quite easy to throw up yourself.
+Images should run on anything that supports containers and OCI images I guess. I suppose even in Kubernetes it should run fine since they're rootless by default.
+
+## Maintainability
+
+In most cases you can just git clone a repo and follow instructions to build latest versions of the software. I use `public.ecr.aws` during build time since they have way more relaxed pull limits so you won't risk running into mystical rate limit errors.
 
 ## Where your images are published?
 
-On GitHub Container Registry. Used to be on Docker Hub but they keep giving and taking away stuff all the time and constantly trying to upsell you that expensive monthly plan.
+GitHub Container Registry (ghcr.io/rubberverse)
+
+Used to be on Docker Hub but they kept giving and taking away stuff all the time while trying to upsell you that expensive monthly plan, not to mention these new ratelimits are tragic. 
 
 ## Can I has your dockerfile? :3
 
-Ye sure, go ahead they're just glorified shell scripts shoved into a file anyways. Wouldn't mind if you referenced it but I won't care if you don't. Do as you wish, I just select MIT because that's the only license I know from top of my finger and I'm not a lawyer.
+Ye sure, go ahead they're just glorified shell scripts shoved into a file anyways. Wouldn't mind if you gave a little shoutout to me but I won't care if you won't. referenced it but I won't be sad if you don't. Do as you wish, I just select MIT because that's the only license I know from top of my finger and I'm not a lawyer.
 
 ## Free support??//
 
-Stuff I make here are mostly for my own use, it's great if it works for you but don't expect stellar, top of the line support. You can create a GitHub issue and maybe I'll take a lookie but I won't really bother fixing it unless it impacts me personally. I'll probably tackle onto it when I'm bored.
+Stuff I make here are mostly for my own use, it's great if it works for you but don't expect stellar, top of the line support. You can create a GitHub issue and maybe I'll take a lookie but I won't really bother fixing it unless it impacts me personally. I'll probably tackle onto it when I'm bored. You can hit me up via e-mail to ask questions, some peeps done that before.
 
 ## Is there like example configurations or Quadlet deployments somewhere?
 
-You can see them in my personal [GitHub](https://github.com/MrRubberDucky/rubberverse.xyz) page thingy, whatever.
+You can see them in my personal [GitHub](https://github.com/MrRubberDucky/Homelab) page thingy, whatever.
