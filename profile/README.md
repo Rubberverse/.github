@@ -1,6 +1,6 @@
-# Organization for things I liked to make.
+# Organization for things I've made, or maybe just want to have here.
 
-The site in question being [rubberverse.xyz](https://rubberverse.xyz]
+The site in question being [rubberverse.xyz](https://rubberverse.xyz)
 
 ## Image / Containerfile quality
 
