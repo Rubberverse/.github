@@ -18,7 +18,7 @@ Images should run on anything that supports containers and OCI images I guess. I
 
 In most cases you can just git clone a repo and follow instructions to build latest versions of the software. I use `public.ecr.aws` during build time since they have way more relaxed pull limits so you won't risk running into mystical rate limit errors.
 
-## Where your images are published?
+## Where are your images published?
 
 GitHub Container Registry (ghcr.io/rubberverse)
 
