@@ -26,7 +26,7 @@ Used to be on Docker Hub but they kept giving and taking away stuff all the time
 
 ## Can I has your dockerfile? :3
 
-Ye sure, go ahead they're just glorified shell scripts shoved into a file anyways. Wouldn't mind if you gave a little shoutout to me but I won't care if you won't. referenced it but I won't be sad if you don't. Do as you wish, I just select MIT because that's the only license I know from top of my finger and I'm not a lawyer.
+Ye sure, go ahead they're just glorified shell scripts shoved into a file anyways. Wouldn't mind if you gave a little shoutout to me but I won't be sad about it if you won't. Do as you wish, I just select MIT because that's the only license I know from top of my finger and I'm not a lawyer.
 
 ## Free support??//
 
